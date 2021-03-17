@@ -1,0 +1,45 @@
+<p>
+    Les éléments ne sont pas tous importants. Ce que vous devez faire ici, c'est de supprimer du tableau suivant {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} tous les éléments avant celui indiqué.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p>
+
+<p>
+    Pour l'illustration, nous avons une liste  {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} [1, 2, 3, 4, 5] et nous devons supprimer les éléments qui sont avant 3 - soit 1 et 2.
+</p>
+
+<p>
+	Nous avons deux cas extrêmes ici: (1) si un élément de coupe ne peut être trouvé, alors le {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} ne devrait être changé. (2) si le tableau {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} est vide, alors il doit rester vide.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Entrée: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Liste{% endif %} ainsi que les éléments d'encadrement (crochets).
+</p>
+
+<p>
+    <strong>Sortie: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable (tuple, liste, itérateur ...){% endif %}.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Example:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">removeAllBefore([1, 2, 3, 4, 5], 3) == [3, 4, 5]
+removeAllBefore([1, 1, 2, 2, 3, 3], 2) == [2, 2, 3, 3]
+removeAllBefore([1, 1, 2, 4, 2, 3, 4], 2) == [2, 4, 2, 3, 4]
+removeAllBefore([1, 1, 5, 6, 7], 2) == [1, 1, 5, 6, 7]
+removeAllBefore([], 0) == []
+</pre>
+{% else %}
+<pre class="brush: python">remove_all_before([1, 2, 3, 4, 5], 3) == [3, 4, 5]
+remove_all_before([1, 1, 2, 2, 3, 3], 2) == [2, 2, 3, 3]
+</pre>
+{% endif %}
+</div>
